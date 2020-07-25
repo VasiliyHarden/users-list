@@ -2,9 +2,10 @@ import { actionTypes } from './action-types';
 import { getUsers } from '../../api/users';
 
 export const loadUsers = (datasetSize) => {
-  return dispatch => {
+  return async dispatch => {
+    console.log('Starting request...');
     try {
-      const users = getUsers(datasetSize);
+      const users = await getUsers(datasetSize);
       dispatch({
         type: actionTypes.LOAD_USERS,
         users
