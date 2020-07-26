@@ -24,3 +24,18 @@ export const setCurrentUser = (key) => ({
   type: actionTypes.SET_CURRENT_USER,
   key
 });
+
+// TO DO:
+export const addUser = () => ({
+  type: actionTypes.ADD_USER
+});
+
+export const applySorting = (column) => ({
+  type: actionTypes.APPLY_SORTING,
+  column
+});
+
+export const applyFilter = (filter) => ({
+  type: actionTypes.APPLY_FILTER,
+  filter
+});

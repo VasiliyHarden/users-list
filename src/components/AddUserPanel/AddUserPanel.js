@@ -10,6 +10,7 @@ const AddUserPanel = () => {
   const [form, setForm] = useState(Object.fromEntries(tableCols.map(col => [col, ''])));
 
   const changeHandler = useCallback((e) => {
+    console.log('haha', e.target.name)
     setForm({
       ...form,
       [e.target.name]: e.target.value
