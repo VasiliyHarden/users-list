@@ -1,18 +1,23 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import DataRequestPanel from './components/DataRequestPanel/DataRequestPanel';
 import UsersList from './components/UsersList/UsersList';
-import createStore from './store/create-store';
-
-const store = createStore();
+import AddUserPanel from './components/AddUserPanel/AddUserPanel';
+import UserInfoPanel from './components/UserInfoPanel/UserInfoPanel';
+import { getCurrentUser } from './store/users';
 
 function App() {
+
+  const currentUser = useSelector(getCurrentUser);
+
   return (
-    <Provider store={ store }>
+    <>
       <DataRequestPanel />
+      <AddUserPanel />
       <UsersList />
-    </Provider>
+      { currentUser ? <UserInfoPanel { ...currentUser } /> : null }
+    </>
   );
 }
 

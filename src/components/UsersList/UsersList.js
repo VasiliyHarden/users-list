@@ -2,28 +2,25 @@ import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
 
 import UsersListItem from '../UsersListItem/UsersListItem';
-import { getUsers } from '../../store/users';
+import { getUsersKeys } from '../../store/users';
+import { tableCols } from '../../constants/table-cols';
 
 import './UsersList.scss';
 
 const UsersList = () => {
 
-  const users = useSelector(getUsers, shallowEqual);
+  const usersKeys = useSelector(getUsersKeys, shallowEqual);
   
   return (
     <table>
       <thead>
         <tr>
-          <th>id</th>
-          <th>firstName</th>
-          <th>lastName</th>
-          <th>email</th>
-          <th>phone</th>
+          { tableCols.map(col => <th key={ col }>{ col }</th>) }
         </tr>
       </thead>
       <tbody>
         {
-          users.map(user => <UsersListItem key={ user.id } { ...user } />)
+          usersKeys.map(key => <UsersListItem key={ key } userKey={ key } />)
         }
       </tbody>
     </table>
