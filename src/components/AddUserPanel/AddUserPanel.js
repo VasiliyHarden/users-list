@@ -1,41 +1,27 @@
 import React, { useState, useCallback } from 'react';
 
-import FormField from './FormField/FormField';
-import { tableCols } from '../../constants/table-cols';
+import AddUserForm from './AddUserForm/AddUserForm';
 
 import './AddUserPanel.scss';
 
 const AddUserPanel = () => {
-  
-  const [form, setForm] = useState(Object.fromEntries(tableCols.map(col => [col, ''])));
 
-  const changeHandler = useCallback((e) => {
-    console.log('haha', e.target.name)
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-  }, [form, setForm]);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const addUserHandler = (e) => {
-    console.log('User has been added');
-  };
+  const changeFormVisibilityHandler = useCallback(() => {
+    setIsOpen(!isOpen);
+  }, [isOpen, setIsOpen]);
 
   return (
-    <form className='add-user-panel' onSubmit={ addUserHandler }>
-      {
-        tableCols.map(col => (
-          <FormField 
-            key={ col } 
-            name={ col }
-            value={ form[col] }
-            changeHandler={ changeHandler }
-          />
-        ))
-      }  
-      <button>Add user</button>    
-    </form>
+    <>
+      <div className='add-user-panel__btn-wrapper'>
+        <button className='add-user-panel__btn' onClick={ changeFormVisibilityHandler }>
+          { isOpen ? 'Скрыть форму' : 'Добавить пользователя' }
+        </button>
+      </div>
+      { isOpen && <AddUserForm closeForm={ changeFormVisibilityHandler } /> }
+    </>
   );
-};
+}
 
 export default AddUserPanel;

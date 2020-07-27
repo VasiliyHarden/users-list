@@ -29,9 +29,19 @@ export const setCurrentUser = (key) => ({
   key
 });
 
-// TO DO:
-export const addUser = () => ({
-  type: actionTypes.ADD_USER
+export const addUser = (fields) => ({
+  type: actionTypes.ADD_USER,
+  key: uniqid.time(),
+  user: {
+    ...fields,
+    address: {
+      streetAddress: '',
+      city: '',
+      state: '',
+      zip: ''
+    },
+    description: ''
+  }
 });
 
 export const applySorting = (column) => ({

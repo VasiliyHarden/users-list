@@ -29,10 +29,25 @@ const reducerMapping = {
     current: key
   }),
 
-  // TO DO:
-  [actionTypes.ADD_USER]: (state) => ({
-    ...state
-  }),
+  [actionTypes.ADD_USER]: (state, { key, user }) => {
+    const keys = [key, ...state.keys];
+    const users = { ...state.users, [key]: user };
+
+    let filteredKeys = state.filteredKeys;
+    if (filterFactory(state.filter, users)(key)) {
+      filteredKeys = [key, ...state.filteredKeys];
+      if (state.sortOptions.column) {
+        filteredKeys.sort(sortFactory(state.sortOptions, users));
+      }
+    }
+    
+    return {
+      ...state,
+      keys,
+      filteredKeys,
+      users
+    };
+  },
 
   [actionTypes.APPLY_SORTING]: (state, { column }) => {
     const sortOptions = {
