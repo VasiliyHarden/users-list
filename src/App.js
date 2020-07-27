@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import DataRequestPanel from './components/DataRequestPanel/DataRequestPanel';
 import UsersList from './components/UsersList/UsersList';
 import AddUserPanel from './components/AddUserPanel/AddUserPanel';
+import FilterPanel from './components/FilterPanel/FilterPanel';
 import UserInfoPanel from './components/UserInfoPanel/UserInfoPanel';
 import PagePicker from './components/PagePicker/PagePicker';
 import Spinner from './components/Spinner/Spinner';
@@ -17,6 +18,7 @@ function App() {
     <>
       <DataRequestPanel />
       <AddUserPanel />
+      <FilterPanel />
       <UsersList />
       <PagePicker />
       { currentUser ? <UserInfoPanel { ...currentUser } /> : null }

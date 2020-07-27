@@ -1,5 +1,6 @@
-import { actionTypes } from "./action-types";
-import { sortFactory } from "./utils/sort-factory";
+import { actionTypes } from './action-types';
+import { sortFactory } from './utils/sort-factory';
+import { filterFactory } from './utils/filter-factory';
 
 const initialState = {
   keys: [],
@@ -15,7 +16,7 @@ const initialState = {
 };
 
 const reducerMapping = {
-  [actionTypes.LOAD_USERS]: (state, { users, keys }) => ({
+  [actionTypes.LOAD_USERS]: (_, { users, keys }) => ({
     ...initialState,
     users,
     keys,
@@ -42,13 +43,21 @@ const reducerMapping = {
       ...state,
       filteredKeys: [...state.filteredKeys].sort(sortFactory(sortOptions, state.users)),
       sortOptions,
-    }
+    };
   },
 
-  // TO DO:
-  [actionTypes.APPLY_FILTER]: (state, { filter }) => ({
-    ...state
-  }),
+  [actionTypes.APPLY_FILTER]: (state, { filter }) => {
+    const filteredKeys = state.keys.filter(filterFactory(filter, state.users));
+    if (state.sortOptions.column) {
+      filteredKeys.sort(sortFactory(state.sortOptions, state.users));
+    }
+    return {
+      ...state,
+      filteredKeys,
+      filter,
+      page: 1
+    };
+  },
 
   [actionTypes.NAVIGATE_TO_PAGE]: (state, { page }) => ({
     ...state,
