@@ -39,3 +39,8 @@ export const applyFilter = (filter) => ({
   type: actionTypes.APPLY_FILTER,
   filter
 });
+
+export const navigateToPage = (page) => ({
+  type: actionTypes.NAVIGATE_TO_PAGE,
+  page
+});

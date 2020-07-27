@@ -5,6 +5,7 @@ import DataRequestPanel from './components/DataRequestPanel/DataRequestPanel';
 import UsersList from './components/UsersList/UsersList';
 import AddUserPanel from './components/AddUserPanel/AddUserPanel';
 import UserInfoPanel from './components/UserInfoPanel/UserInfoPanel';
+import PagePicker from './components/PagePicker/PagePicker';
 import { getCurrentUser } from './store/users';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <DataRequestPanel />
       <AddUserPanel />
       <UsersList />
+      <PagePicker />
       { currentUser ? <UserInfoPanel { ...currentUser } /> : null }
     </>
   );

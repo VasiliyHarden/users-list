@@ -10,7 +10,8 @@ const initialState = {
     column: null,
     isAsc: false
   },
-  filter: ''
+  filter: '',
+  page: 1
 };
 
 const reducerMapping = {
@@ -18,7 +19,8 @@ const reducerMapping = {
     ...initialState,
     users,
     keys,
-    filteredKeys: keys
+    filteredKeys: keys,
+    page: 1
   }),
 
   [actionTypes.SET_CURRENT_USER]: (state, { key }) => ({
@@ -46,6 +48,11 @@ const reducerMapping = {
   // TO DO:
   [actionTypes.APPLY_FILTER]: (state, { filter }) => ({
     ...state
+  }),
+
+  [actionTypes.NAVIGATE_TO_PAGE]: (state, { page }) => ({
+    ...state,
+    page
   }),
 };
 

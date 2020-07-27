@@ -1,5 +1,5 @@
 export const sortFactory = (sortOptions, users) => {
-  console.log('Sort options:', sortOptions);
+
   const { column, isAsc } = sortOptions;
 
   const compareStringFields = (lKey, rKey) => {
