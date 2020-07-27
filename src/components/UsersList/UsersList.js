@@ -14,7 +14,7 @@ const UsersList = () => {
 
   const dispatch = useDispatch();
   const applySortHandler = (e) => {
-    dispatch(applySorting(e.target.dataset.columnName));
+    dispatch(applySorting(e.currentTarget.dataset.columnName));
   };
   
   return (
