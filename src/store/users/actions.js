@@ -2,10 +2,12 @@ import uniqid from 'uniqid';
 
 import { actionTypes } from './action-types';
 import { getUsers } from '../../api/users';
+import { showSpinner, hideSpinner } from '../spinner';
 
 export const loadUsers = (datasetSize) => {
   return async dispatch => {
     try {
+      dispatch(showSpinner('Загрузка данных с сервера...'));
       const usersArray = await getUsers(datasetSize);
       const keys = Array.from({ length: usersArray.length }, () => uniqid.time()); 
       const users = Object.fromEntries(usersArray.map((user, i) => [keys[i], user]));
@@ -16,6 +18,8 @@ export const loadUsers = (datasetSize) => {
       });
     } catch (e) {
       console.log('Some error occured while loading data');
+    } finally {
+      dispatch(hideSpinner());
     }
   }
 };
