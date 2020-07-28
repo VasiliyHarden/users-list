@@ -14,6 +14,7 @@
 .user-list__th {
   border: 1px solid $text-color;
   cursor: pointer;
+  table-layout: fixed;
   padding: $s-size 0;
 }
 

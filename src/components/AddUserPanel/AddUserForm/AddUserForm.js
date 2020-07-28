@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import FormField from '../FormField/FormField';
 import { tableCols } from '../../../constants/table-cols';
 import { addUser } from '../../../store/users';
+import { validate } from './utils/validate';
 
 import './AddUserForm.scss';
 
@@ -13,7 +14,8 @@ const AddUserForm = ({ closeForm }) => {
   const [isReady, setIsReady] = useState(false);
 
   const changeHandler = useCallback((e) => {
-    const newForm = { ...form, [e.target.name]: e.target.value };
+    const newValue = validate(e.target.name, form[e.target.name], e.target.value);
+    const newForm = { ...form, [e.target.name]: newValue };
     setForm(newForm);
     setIsReady(Object.values(newForm).every(value => !!value));
   }, [form, setForm, setIsReady]);
