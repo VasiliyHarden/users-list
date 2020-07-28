@@ -8,3 +8,16 @@
     margin-left: $s-size;
   }
 }
+
+.filter-panel__form {
+  display: inline-block;
+}
+
+.filter-panel__info {
+  display: inline-block;
+  margin: 0 $m-size;
+}
+
+.filter-panel__highlight {
+  background-color: yellow;
+}

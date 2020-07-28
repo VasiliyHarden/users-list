@@ -74,6 +74,18 @@ const reducerMapping = {
     };
   },
 
+  [actionTypes.CLEAR_FILTER]: (state) => {
+    const filteredKeys = [...state.keys];
+    if (state.sortOptions.column) {
+      filteredKeys.sort(sortFactory(state.sortOptions, state.users));
+    }
+    return {
+      ...state,
+      filteredKeys,
+      filter: ''
+    };
+  },
+
   [actionTypes.NAVIGATE_TO_PAGE]: (state, { page }) => ({
     ...state,
     page

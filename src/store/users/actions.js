@@ -55,6 +55,10 @@ export const applyFilter = (filter) => ({
   filter
 });
 
+export const clearFilter = () => ({
+  type: actionTypes.CLEAR_FILTER
+});
+
 export const navigateToPage = (page) => ({
   type: actionTypes.NAVIGATE_TO_PAGE,
   page

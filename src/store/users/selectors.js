@@ -18,3 +18,5 @@ export const getSortOptions = state => state.users.sortOptions;
 export const getTotalPages = state => Math.max(1, Math.ceil(state.users.filteredKeys.length / pageSize));
 
 export const getCurrentPage = state => state.users.page;
+
+export const getFilter = state => state.users.filter;
