@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 import { actionTypes } from './action-types';
 import { getUsers } from '../../api/users';
 import { showSpinner, hideSpinner } from '../spinner';
+import { showErrorMessage } from '../notifications';
 
 export const loadUsers = (datasetSize) => {
   return async dispatch => {
@@ -17,7 +18,7 @@ export const loadUsers = (datasetSize) => {
         keys
       });
     } catch (e) {
-      console.log('Some error occured while loading data');
+      dispatch(showErrorMessage('Не удалось загрузить данные с сервера'));
     } finally {
       dispatch(hideSpinner());
     }

@@ -1,0 +1,18 @@
+@import '../../../styles/settings';
+
+.notification {
+  color: $background-color;
+  margin-bottom: 1rem;
+  padding: 1.8rem 1.2rem;
+  width: 20rem;
+}
+
+.notification--success {
+  background-color: $success-color;
+  border: 2px solid darken($success-color, 10%);
+}
+
+.notification--error {
+  background-color: $error-color;
+  border: 2px solid darken($error-color, 10%);
+}
