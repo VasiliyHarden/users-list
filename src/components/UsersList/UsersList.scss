@@ -1,0 +1,31 @@
+@import '../../styles/settings';
+
+.user-list {
+  margin: $m-size 0;
+  padding: 0 $l-size;
+}
+
+.user-list__table {
+  border-collapse: collapse;
+  margin: $s-size 0;
+  width: 100%;
+}
+
+.user-list__th {
+  border: 1px solid $text-color;
+  padding: $s-size 0;
+}
+
+.user-list__col--id {
+  width: 10%;
+}
+
+.user-list__col--firstName, 
+.user-list__col--lastName, 
+.user-list__col--phone {
+  width: 20%;
+}
+
+.user-list__col--email {
+  width: 30%;
+}

@@ -1,0 +1,20 @@
+@import '../../styles/settings';
+
+.page-picker {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-picker__btn {
+  border: none;
+  font-size: 1.2rem;
+  padding: $s-size;
+
+  &:disabled {
+    background-color: $second-color;
+    color: $background-color;
+    cursor: auto;
+  }
+}

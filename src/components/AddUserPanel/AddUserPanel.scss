@@ -1,3 +1,7 @@
+@import '../../styles/settings';
+
 .add-user-panel__btn-wrapper {
+  margin: $m-size 0;
+  padding: 0 $l-size;
   text-align: right;
 }

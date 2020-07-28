@@ -15,10 +15,10 @@ const UserInfoPanel = ({
   }, [description]);
 
   return (
-    <div>
+    <div className='user-info-panel'>
       <p>Выбран пользователь <b>{ `${firstName} ${lastName}` }</b></p>
       <p>Описание:</p>
-      <textarea ref={ textareaRef } />
+      <textarea className='user-info-panel__textarea' ref={ textareaRef } />
       <p>Адрес проживания: <b>{ streetAddress }</b></p>
       <p>Город: <b>{ city }</b></p>
       <p>Провинция/штат: <b>{ state }</b></p>

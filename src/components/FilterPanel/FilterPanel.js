@@ -20,9 +20,9 @@ const FilterPanel = () => {
   }
 
   return (
-    <form onSubmit={ setFilterHandler }>
+    <form className='filter-panel' onSubmit={ setFilterHandler }>
       <input type='text' value={ text } onChange={ changeHandler } />
-      <button>Найти</button>
+      <button className='filter-panel__btn'>Найти</button>
     </form>
   );
 };

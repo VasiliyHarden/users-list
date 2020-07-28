@@ -15,7 +15,7 @@ const AddUserPanel = () => {
   return (
     <>
       <div className='add-user-panel__btn-wrapper'>
-        <button className='add-user-panel__btn' onClick={ changeFormVisibilityHandler }>
+        <button onClick={ changeFormVisibilityHandler }>
           { isOpen ? 'Скрыть форму' : 'Добавить пользователя' }
         </button>
       </div>

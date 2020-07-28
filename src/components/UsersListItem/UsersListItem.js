@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 
 import { getUserByKey, setCurrentUser } from '../../store/users';
+import { tableCols } from '../../constants/table-cols';
 
 import './UsersListItem.scss';
 
@@ -15,12 +16,12 @@ const UsersListItem = ({ userKey }) => {
   };
 
   return (
-    <tr onClick={ setCurrentHandler }>
-      <td>{ user.id }</td>
-      <td>{ user.firstName }</td>
-      <td>{ user.lastName }</td>
-      <td>{ user.email }</td>
-      <td>{ user.phone }</td>
+    <tr className='user-list-item__row' onClick={ setCurrentHandler }>
+      {
+        tableCols.map(col => (
+          <td key={ col } className='user-list-item__td'>{ user[col] }</td>
+        ))
+      }
     </tr>
   );
 };

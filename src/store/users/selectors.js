@@ -15,6 +15,6 @@ export const getCurrentUser = state => {
 
 export const getSortOptions = state => state.users.sortOptions;
 
-export const getTotalPages = state => Math.ceil(state.users.filteredKeys.length / pageSize);
+export const getTotalPages = state => Math.max(1, Math.ceil(state.users.filteredKeys.length / pageSize));
 
 export const getCurrentPage = state => state.users.page;

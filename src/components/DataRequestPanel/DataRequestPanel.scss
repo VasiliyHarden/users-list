@@ -1,0 +1,10 @@
+@import '../../styles/settings';
+
+.request-panel {
+  background-color: darken($background-color, 15%);
+  padding: $m-size $l-size;
+}
+
+.request-panel__btn {
+  margin-right: $m-size;
+}

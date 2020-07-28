@@ -1,0 +1,10 @@
+@import '../../styles/settings';
+
+.filter-panel {
+  margin: $m-size 0;
+  padding: 0 $l-size;
+
+  &__btn {
+    margin-left: $s-size;
+  }
+}

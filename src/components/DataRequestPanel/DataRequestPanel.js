@@ -15,14 +15,22 @@ const DataRequestPanel = () => {
   };
 
   return (
-    <>
-      <button name={ datasetSizes.small } onClick={ dataRequestHandler }>
-        Load small dataset
+    <div className='request-panel'>
+      <button 
+        className='request-panel__btn' 
+        name={ datasetSizes.small } 
+        onClick={ dataRequestHandler }
+      >
+        Загрузить маленький датасет
       </button>
-      <button name={ datasetSizes.large } onClick={ dataRequestHandler }>
-        Load large dataset
+      <button 
+        className='request-panel__btn'
+        name={ datasetSizes.large } 
+        onClick={ dataRequestHandler }
+      >
+        Загрузить большой датасет
       </button>
-    </>
+    </div>
   );
 };
 

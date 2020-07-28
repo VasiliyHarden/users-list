@@ -6,7 +6,6 @@ import UsersList from './components/UsersList/UsersList';
 import AddUserPanel from './components/AddUserPanel/AddUserPanel';
 import FilterPanel from './components/FilterPanel/FilterPanel';
 import UserInfoPanel from './components/UserInfoPanel/UserInfoPanel';
-import PagePicker from './components/PagePicker/PagePicker';
 import Spinner from './components/Spinner/Spinner';
 import { getCurrentUser } from './store/users';
 
@@ -20,7 +19,6 @@ function App() {
       <AddUserPanel />
       <FilterPanel />
       <UsersList />
-      <PagePicker />
       { currentUser ? <UserInfoPanel { ...currentUser } /> : null }
       <Spinner />
     </>

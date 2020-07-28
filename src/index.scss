@@ -1,5 +1,11 @@
+@import './styles/settings';
+
 body {
+  background-color: $background-color;
+  color: $text-color;
   margin: 0;
+  min-width: $min-app-width;
+  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,6 +18,31 @@ code {
     monospace;
 }
 
-h1 {
-  color: #2c2ca0;
+button {
+  background-color: transparent;
+  border: 2px solid $main-color;
+  border-radius: 0.3rem;
+  color: $main-color;
+  cursor: pointer;
+  padding: $s-size $m-size;
+
+  &:hover:enabled {
+    background-color: $main-color;
+    color: $background-color;
+  }
+
+  &:disabled {
+    border-color: darken($background-color, 20%);
+    color: darken($background-color, 20%);
+  }
+}
+
+input {
+  border: 2px solid darken($background-color, 10%);
+  color: $text-color;
+  padding: $s-size $m-size;
+
+  &:focus {
+    border: 2px solid $main-color;
+  }
 }

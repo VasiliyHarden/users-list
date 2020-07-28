@@ -1,0 +1,13 @@
+@import '../../styles/settings';
+
+.user-list-item__row:hover {
+  background-color: darken($background-color, 10%);
+}
+
+.user-list-item__td {
+  border: 1px solid $text-color;
+  cursor: pointer;
+  padding: $s-size 0;
+  text-align: center;
+  word-wrap: break-word;
+}

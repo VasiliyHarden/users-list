@@ -27,17 +27,22 @@ const AddUserForm = ({ closeForm }) => {
 
   return (
     <form className='add-user-form' onSubmit={ addUserHandler }>
-      {
-        tableCols.map(col => (
-          <FormField 
-            key={ col } 
-            name={ col }
-            value={ form[col] }
-            changeHandler={ changeHandler }
-          />
-        ))
-      }  
-      <button disabled={ !isReady }>Add user</button>    
+      <div className='add-user-form__input-group'>
+        {
+          tableCols.map(col => (
+            <FormField 
+              key={ col } 
+              name={ col }
+              value={ form[col] }
+              changeHandler={ changeHandler }
+              className={`add-user-form__field add-user-form__field--${col}`}
+            />
+          ))
+        }
+      </div>
+      <div className='add-user-form__button-group'>
+        <button disabled={ !isReady }>Добавить в таблицу</button>    
+      </div>
     </form>
   );
 };
