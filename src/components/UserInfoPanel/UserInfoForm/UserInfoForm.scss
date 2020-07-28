@@ -1,11 +1,11 @@
-@import '../../styles/settings';
+@import '../../../styles/settings';
 
-.user-info-panel {
+.user-info-form {
   margin: $m-size 0;
   padding: 0 $l-size;
 }
 
-.user-info-panel__textarea {
+.user-info-form__textarea {
   display: inline-block;
   height: 10rem;
   resize: none;

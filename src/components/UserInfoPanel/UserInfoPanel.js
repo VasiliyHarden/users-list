@@ -1,30 +1,18 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import './UserInfoPanel.scss';
+import UserInfoForm from './UserInfoForm/UserInfoForm';
+import { getCurrentUser } from '../../store/users';
 
-const UserInfoPanel = ({ 
-  firstName, 
-  lastName, 
-  description, 
-  address: { streetAddress, city, state, zip }
-}) => {
+const UserInfoPanel = () => {
 
-  const textareaRef = useRef();
-  useLayoutEffect(() => {
-    textareaRef.current.value = description;
-  }, [description]);
+  const currentUser = useSelector(getCurrentUser);
 
   return (
-    <div className='user-info-panel'>
-      <p>Выбран пользователь <b>{ `${firstName} ${lastName}` }</b></p>
-      <p>Описание:</p>
-      <textarea className='user-info-panel__textarea' ref={ textareaRef } />
-      <p>Адрес проживания: <b>{ streetAddress }</b></p>
-      <p>Город: <b>{ city }</b></p>
-      <p>Провинция/штат: <b>{ state }</b></p>
-      <p>Индекс: <b>{ zip }</b></p>
-    </div>
-  );
+    <>
+      { currentUser ? <UserInfoForm { ...currentUser } /> : null }
+    </>
+  )
 };
 
 export default UserInfoPanel;
